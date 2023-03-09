@@ -32,7 +32,8 @@ deploySite <- function(siteDir = getwd(),
                        metadata = list(),
                        python = NULL,
                        ...) {
-
+  argslist <- match.call()
+  dump(c('argslist'), file = getOption("rsconnect.dumpfile.deploysite", "/tmp/deploySite"))
   # switch to siteDir for duration of this function
   oldwd <- setwd(siteDir)
   on.exit(setwd(oldwd), add = TRUE)

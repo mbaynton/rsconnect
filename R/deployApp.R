@@ -133,7 +133,8 @@ deployApp <- function(appDir = getwd(),
                       appVisibility = NULL,
                       image = NULL
                       ) {
-
+  argslist <- match.call()
+  dump(c('argslist'), file = getOption("rsconnect.dumpfile.deployapp", "/tmp/deployApp"))
   condaMode <- FALSE
 
   if (!isStringParam(appDir))
